@@ -246,11 +246,11 @@ function getModelYears(array) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(array, id) {
+function getOlderCars(array, number) {
   /* code here */
   var Array = [];
   for(let i = 0; i < array.length; i++){
-    if(array[i].car_year < id){
+    if(array[i].car_year <= number){
       Array.push(array[i]);
     }
   }
@@ -268,8 +268,15 @@ function getOlderCars(array, id) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
+function getGermanCars(array) {
   /* code here */
+  const Array = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].car_make === 'Audi' || array[i].car_make === 'Mercedes-Benz' || array[i].car_make === 'Volkswagen' || array[i].car_make === 'BMW'){
+      Array.push(array[i]);
+    }
+  }
+  return Array;
 }
 
 /**
@@ -282,6 +289,7 @@ function getGermanCars(/* code here */) {
  *   return a + b
  * }
  * 
+ * 
  * const addFive = function(num) {
 *    return num + 5
  * }
@@ -290,9 +298,9 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const  sum = (a,b) => a + b; // code here!
+const addFive = (num) => num + 5; // code here!
+const argTimesTwo = (num) => num * 2; // code here!
 
 /**
  * ### Challenge `carMaker`
@@ -307,8 +315,18 @@ const argTimesTwo = null; // code here!
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
+function carMaker(number) {
   /* code here */
+  return {
+    make: 'Honda',
+    model: 'Accord',
+    year: 1999,
+    odometer: number,
+    drive: function(number){
+      this.odometer += number;
+      return this.odometer;
+    }
+  };
 }
 
 /// ////// END OF CHALLENGE /////////
